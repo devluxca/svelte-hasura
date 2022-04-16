@@ -1,0 +1,61 @@
+{
+    "extends": [
+        "standard",
+        "plugin:ramda/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "env": {
+        "node": true,
+        "browser": true,
+        "es2020": true
+    },
+    "plugins": [
+        "svelte3",
+        "ramda",
+        "no-loops",
+        "immutable"
+    ],
+    "rules": {
+        "no-loops/no-loops": 2,
+        "immutable/no-let": 2,
+        "immutable/no-this": 2,
+        "immutable/no-mutation": 2,
+        "indent": [
+            "error",
+            2
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.svelte"
+            ],
+            "processor": "svelte3/svelte3",
+            "rules": {
+                "import/first": "off",
+                "import/no-duplicates": "off",
+                "import/no-mutable-exports": "off",
+                "import/no-unresolved": "off",
+                "immutable/no-let": "off",
+                "no-multiple-empty-lines": "off",
+                "no-undef": "off",
+                "no-unused-vars": "off"
+            }
+        },
+        {
+            "files": [
+                "*.test.js"
+            ],
+            "env": {
+                "mocha": true
+            }
+        }
+    ]
+}
